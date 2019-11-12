@@ -76,7 +76,10 @@ void QuickPlot::showEvent(QShowEvent* event) {
 	QWidget::showEvent(event);
 }
 
-void QuickPlot::addFile(std::ifstream file, const std::string& fileName) {
+void QuickPlot::addFile(const std::string& fileName) {
+	std::ifstream file(fileName);
+	if (!file.good())
+		throw(std::runtime_error("Could not open file: " + fileName));
 	std::string firstLine;
 	std::getline(file, firstLine, '\n');
 	char separator = ' ';

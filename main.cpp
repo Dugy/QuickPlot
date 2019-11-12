@@ -13,13 +13,8 @@ int main(int argc, char *argv[])
 	QuickPlot window;
 	int filesRead = 0;
 	for (int i = 1; i < argc; i++) {
-		std::ifstream file(argv[i]);
-		if (!file.good()) {
-			std::cerr << "Could not open " << argv[i] << std::endl;
-			continue;
-		}
 		try {
-			window.addFile(std::move(file), argv[i]);
+			window.addFile(argv[i]);
 			filesRead++;
 		} catch (std::exception& e) {
 			std::cerr << "Could not read " << argv[i] << ": " << e.what() << std::endl;

@@ -16,7 +16,7 @@ class QuickPlot : public QMainWindow
 public:
 	QuickPlot(QWidget *parent = nullptr);
 	~QuickPlot();
-	void addFile(std::ifstream file, const std::string& fileName);
+	void addFile(const std::string& fileName);
 	void showEvent(QShowEvent* event);
 
 private slots:
