@@ -4,6 +4,7 @@
 #include <QMainWindow>
 #include <string>
 #include <vector>
+#include "data_reader.hpp"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class QuickPlot; }
@@ -25,22 +26,6 @@ private slots:
 private:
 	Ui::QuickPlot *ui;
 
-	struct GraphLine {
-		std::string name;
-		std::vector<double> valuesY;
-		int validPoints = 0;
-	};
-
-	struct GraphData {
-		std::string name;
-		std::string xName;
-		std::vector<double> valuesX;
-		std::vector<GraphLine> lines;
-	};
-
 	std::vector<GraphData> _graphs;
-	bool _named = false;
-	bool _logarithmic = false;
-	int _maxValidPoints = 0;
 };
 #endif // QUICKPLOT_H
